@@ -1,0 +1,19 @@
+Bài 1 : Xử lý xung đột tài liệu trên GitHub
+## Phần 1. Phân tích
+### 1. Chỉ ra 2 sai lầm trong tư duy của Nam khi dùng file Word cho lưu trữ mã nguồn
+* **Sai lầm 1 (Không trực quan trên Git):** Cho rằng Word tốt hơn vì có thanh công cụ và màu sắc trực quan. Thực tế, GitHub không thể hiển thị xem trước trực tiếp (preview) nội dung file `.docx` trên trình duyệt.
+
+* **Sai lầm 2 (Lầm tưởng về quản lý phiên bản):** Nghĩ rằng chỉnh sửa nhỏ (như thêm 1 dấu phẩy) chỉ làm thay đổi nhẹ dữ liệu. Thực tế, file `.docx` là file nhị phân (binary), Git không hiểu cấu trúc bên trong nên chỉ một thay đổi nhỏ cũng làm **xung đột (conflict) toàn bộ file**.
+### 2. Giải thích tại sao Markdown lại an toàn và nhẹ hơn
+* **Nhẹ hơn:** Markdown là văn bản thuần (Plain Text), dung lượng cực kỳ nhẹ, không chứa các mã định dạng phức tạp như Word.
+* **An toàn hơn:** Git dễ dàng theo dõi sự thay đổi theo từng dòng (line-by-line). Khi xảy ra xung đột, Git chỉ báo xung đột đúng dòng văn bản bị thay đổi, giúp dễ so sánh (diff), gộp mã (merge) và review Pull Request mà không lo hỏng toàn bộ file.
+
+## Phần 2. Hoàn thiện
+Chuyển đổi văn bản định dạng Word thiếu ngăn nắp sang định dạng Markdown chuẩn (`.md`):
+# Giới thiệu dự án
+Dự án Website bán sách trực tuyến mang đến trải nghiệm mua sắm **thuận tiện**, **nhanh chóng**...
+## Tính năng chính
+* Tìm kiếm sách
+* Thêm vào giỏ hàng
+* Thanh toán online
+> **Ghi chú kỹ thuật:** Dùng các cú pháp Markdown chuẩn như `#` cho H1, `##` cho H2, `**văn bản**` để in đậm và `*` hoặc `-` cho danh sách gạch đầu dòng.
